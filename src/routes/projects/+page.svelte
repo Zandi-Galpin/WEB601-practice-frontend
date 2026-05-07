@@ -1,17 +1,22 @@
 <script>
     import ProjectCard from '$lib/ProjectCard.svelte';
+    import { onMount } from "svelte";
+    import { getProjects } from "$lib/api/projects";
 
-    let { data } = $props();
-
+    let projects = $state([]);
     let search = $state('');
 
+    onMount(async () => {
+        projects = await getProjects();
+    });
+
     let filtered = $derived(
-        data.projects.filter(p =>
+        projects.filter(p =>
             p.title.toLowerCase().includes(search.toLowerCase())
         )
     );
-
 </script>
+
 
 <h1>Projects</h1>
 

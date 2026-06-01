@@ -11,4 +11,10 @@ const userSchema = z.object({
 
 const updateUserSchema = userSchema.omit({ password: true }).partial();
 
-export { userSchema, updateUserSchema };
+const loginSchema = z.object({
+  username: z.string().min(1, 'Username is required'),
+  password: z.string().min(1, 'Password is required')
+});
+
+
+export { userSchema, updateUserSchema, loginSchema };

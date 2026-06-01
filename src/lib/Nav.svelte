@@ -5,5 +5,6 @@
         <li><a href="/contact" class="hover:text-blue-300">Contact</a></li>
         <li><a href="/profile" class="hover:text-blue-300">Profile</a></li>
         <li><a href="/projects" class="hover:text-blue-300">Projects</a></li>
+        <li><a href="/login" class="hover:text-blue-300">Login</a></li>
     </ul>
 </nav>

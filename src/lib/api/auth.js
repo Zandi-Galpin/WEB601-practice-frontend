@@ -14,3 +14,17 @@ export async function login(credentials) {
     
     return data;
 }
+
+export async function logout() {
+    const refreshToken = browser ? localStorage.getItem('refreshToken') : null;
+
+    await apiFetch('/auth/logout', {
+        method: 'POST',
+        body: JSON.stringify({ refreshToken })
+    });
+
+    if (browser) {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+    }
+}
